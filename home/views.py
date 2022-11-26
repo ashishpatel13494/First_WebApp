@@ -1,9 +1,9 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,HttpResponse
+import datetime
 # Create your views here.
 def index(request):
     
-    return render(request,"home.html",)
+    return render(request,"index.html",)
 
 def result(request):
     article=request.GET['article']
@@ -18,3 +18,8 @@ def result(request):
             dict_words[word] = 1
             
     return render(request,"result.html",{"article":article,'word_count':word_count,'dict_words':dict_words})
+
+# def current_time(request):
+#     now=datetime.datetime.now()
+#     html="<h1>Time Now Is %s.</h1>"% now
+#     return HttpResponse(html)
